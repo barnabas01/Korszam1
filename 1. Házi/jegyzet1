@@ -1,0 +1,16 @@
+A kód elején az #include parancsal meghívtam az iostream és a cmath package-et, ezek a cout és a cos() függvényhez kellenek majd.
+Ezen túl használtam az "std" namespace-t bár utólag rájöttem hogy három helyen kellett volna csak odaírni hogy std::
+
+az integrate függvény:
+  az integrate függvényben az elején definiálom a "function" lambda függvényt; ez lesz a függvény amit később integrálok. (most azt írtam bele ami példaként meg volt adva a feladatban)
+  
+  double h = (x1-x0)/n; -> a h lesz a lépés nagysága; gyakorlatilag felosztjuk n db h hosszúságú
+  double h2 = h/2;      -> előre kiszámolom a lépésnagyság felét (itt lesznek a midpoint-ok) ez azt jelenti hogy eggyel több változót kell lefoglalni, de cserébe megspórolunk n db osztást
+  double S = 0;         -> az S lesz a változó amiben összeszummázom az integrált 
+  
+  a for ciklus i=0 tól i=n-1 ig megy (ekkor lesz legutoljára igaz hogy i<n) 
+  minden ciklusában kiszmáoljuk a függvény értékét az i-edik felosztás közepénél (ez x0+i*h+h2 található meg) és megszorozzuk ezt a lépésnagysággal, majd hozzáadjuk az S értékéhez.
+
+  a for ciklus után visszatérünk a szumma értékével
+
+A main függvényben annyi történik hogy átállítjuk a cout precízióját 16 számjegyre aztán lefuttatjuk az integrate függvényt n = 10000, x0 = -1, x1 = 3 paraméterekkel ahogy a feladatban meg volt adva mint példa.

@@ -10,8 +10,8 @@ double integrate(int n, double x0, double x1){
     // így átláthatóbb és szükség esetén könnyebben átírható, továbbá egy általános integráló függvényt is könnyen
     // lehetne csinálni az egészből, hogyha az "integrate" függvény egyik paramétereként megadható lenne a "function" függvény
 
-    double h = (x1-x0)/n; //a h a lépés nagysága
-    double h2 = h/2;      //itt előre elmentem a h/2-t hogy ne kelljen később n-szer megcsinálni a számolást
+    double h = (x1-x0)/n; // a h a lépés nagysága
+    double h2 = h/2;      // itt előre elmentem a h/2-t hogy ne kelljen később n-szer megcsinálni a számolást
     double S = 0;         // a nagy S lesz a változó amiben összeszummázzuk az integrált
 
     for(int i=0; i < n; i++){

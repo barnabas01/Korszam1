@@ -3,7 +3,7 @@
 using namespace std; // behívom az std namespace-t mert lusta vagyok 3 helyre odaírni azt hogy std:: (a két cout meg az endl elé)
 
 
-//midpoint féle integrálás
+//midpointos integrálás
 double integrate(int n, double x0, double x1){
     auto function = [](double x){return cos(x)*exp(-(x*x));}; 
     // itt egy lambda függvényként írtam be a függvényünket, bár lehetett volna csak egyből a for loop-ba beírni, de talán 

@@ -13,4 +13,5 @@ az integrate függvény:
 
   a for ciklus után visszatérünk a szumma értékével
 
-A main függvényben annyi történik hogy átállítjuk a cout precízióját 16 számjegyre aztán lefuttatjuk az integrate függvényt n = 10000, x0 = -1, x1 = 3 paraméterekkel ahogy a feladatban meg volt adva mint példa.
+A main függvényben annyi történik hogy átállítjuk a cout precízióját 16 számjegyre aztán lefuttatjuk az integrate függvényt n = 10000, x0 = -1, x1 = 3 paraméterekkel ahogy a feladatban meg volt adva mint példa,
+majd kiiratjuk az eredményt

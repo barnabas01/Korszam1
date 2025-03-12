@@ -1,11 +1,9 @@
 #include <iostream>  // iostream package a cout-hoz
-#include <cmath>     // cmat a koszinusz "cos()" függvényhez
-using namespace std; // behívom az std namespace-t mert lusta vagyok 3 helyre odaírni azt hogy std:: (a két cout meg az endl elé)
+#include <cmath>     // cmath a koszinusz "cos()" függvényhez
 
 
 //midpointos integrálás
-double integrate(int n, double x0, double x1){
-    auto function = [](double x){return cos(x)*exp(-(x*x));}; 
+double integrate(auto function, int n, double x0, double x1){
     // itt egy lambda függvényként írtam be a függvényünket, bár lehetett volna csak egyből a for loop-ba beírni, de talán 
     // így átláthatóbb és szükség esetén könnyebben átírható, továbbá egy általános integráló függvényt is könnyen
     // lehetne csinálni az egészből, hogyha az "integrate" függvény egyik paramétereként megadható lenne a "function" függvény
@@ -22,8 +20,31 @@ double integrate(int n, double x0, double x1){
     return S;
 }
 
+double prec = 0.00001;
+int n = 100000;
+auto func1 = [](double x){return cos(x)*exp(-(x*x));}; 
+double func1_x0 = -1.0;
+double func1_x1 = 3.0;
+double func1ref = 1.34638795680345037669816;
+auto func2 = [](double x){return sin(x)*x*x;};
+double func2_x0 = -3.5;
+double func2_x1 = 2.1;
+double func2ref = -2.30104;
+
 int main(){
-    cout.precision(16);                // a feladat leírása alapján átállítom a "cout" pontosságát
-    cout<<integrate(10000,-1,3)<<endl; // meghívjuk a függvényt, és kiiratjuk az eredményt (és egy új sort)
+    double result1 = integrate(func1,n,func1_x0,func1_x1);
+    if(std::abs(func1ref-result1) < prec){
+        std::cout<<"passed test 1"<<std::endl;
+    } 
+    else{
+        std::cout<<"failed on test 1"<<std::endl;
+    }
+    double result2 = integrate(func2,n,func2_x0,func2_x1);
+    if(std::abs(func2ref-result2) < prec){
+        std::cout<<"passed test 2"<<std::endl;
+    } 
+    else{
+        std::cout<<"failed on test 2"<<std::endl;
+    }
     return 0;
 }

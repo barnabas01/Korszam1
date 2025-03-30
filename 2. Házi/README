@@ -1,0 +1,9 @@
+vector2.h file:
+
+létrehoztam a Vector2 struct-ot a T template-el, x,y értékkel. A struct-ba beleírtam a length és normalize függvényt, továbbá a += -= operátorokat.
+A struct-on kívül definiáltam a többi operátort. Megcsináltam az összeadást kivonást, jobbról, balról szorzást skalárral (csillag)
+és ugyanúgy csillaggal a skalárszorást is. Ezen túl a skalárral való szorzást is megcsináltam, és a << és >> operátorokat is.
+
+A main.cpp file:
+
+Itt csak annyi történik hogy behívom a vector2.h filet és az összes definiált operátorán és függvényén végighaladva letesztelem, és kiiratom hogy tolerancián belül volt-e.

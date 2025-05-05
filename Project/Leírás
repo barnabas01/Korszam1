@@ -1,0 +1,21 @@
+Monte Carlo integrátor leírás:
+
+A kódban sorban haladva a következőket látjuk: először is meghatároztam egy "n" és egy "rand_res" változót. Az "n" annyit határoz meg hogy az integrálásnál
+majd hány random pontot generáljunk le, a "rand_res" pedig hogy az így legenerált pontokan milyen "felbontása" legyen. Itt most arra gondolok, hogy egy
+random pont x coordinátája "rand_res" féle értéket vehet fel, ugyanez igaz y és z koordinátákra is. 
+
+Ezután definiáltam egy "rand_range" függvényt, ennek csak annyi a célja hogy megadva neki egy egy felső és egy alsó határt visszaad egy random értéket 
+(a "rand_res" felbontásával persze) a megadott intervallumon.
+
+A "rand_point" pedig az előző függvényt felhasználva legenerál nekünk egy random pontot a megadott határok között.
+
+Ezután jön maga a MonteCarlo függvénye. Alapvetően annyi történik, hogy "n" szer legenerálunk egy random pontot a megadott intervallumon, ami egy az integrálás
+térfogatát magába foglaló téglatest. Itt egyszerre két dolog is történik, minden "n" legenerált pontra elmentjük hogy egyáltalán benne volt-e az integrálás
+térfogatában, és hogyha igen akkor hozzáadjuk az értékét egy szummához. Ezek után abból hogy hány pont volt benne az integrálás térfogatában meg tudjuk határozni
+az integrálási térfogatát, hiszen a megadott téglatestnek könnyű kiszámolni a térfogatát, és azt tudjuk mondani, hogy az integrálás térfogata úgy aránylik a teljes
+térfogathoz mint ahogy benti pontok aránylanak az összes ponthoz. A korábban említett szummát elosztjuk a benti pontok számával, így kapunk egy átlagos integrál értéket
+amit megszorozva az integrálás térfogatával megkapjuk az integrál közelítő értékét.
+
+A "main" programrésznél csak annyit csináltam hogy definiálok egy referencia értéket, amit én kézzel számoltam ki, az "srand(time(0))" sorral pedig megpróbáltam az idő
+felhasználásával növelni a kódom randomizáltságát valamennyi sikerrel. Ezek után lefuttatva a MonteCarlo függvényt letesztelem, hogy a visszakapott érték 0.01 hibán 
+belül van-e a referencia értékhez képest. A referencia értéket én számoltam ki kézzel + Wolfram Alphával.

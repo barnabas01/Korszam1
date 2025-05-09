@@ -3,8 +3,8 @@
 
 #include<tuple>
 
-double rand_range(double,double);
-std::tuple<double,double,double> rand_point(double, double, double, double, double, double);
-double MonteCarlo(auto, auto, double, double, double, double, double, double);
+double rand_range(std::mt19937&, const double&, const double&);
+std::tuple<double,double,double> rand_point(std::mt19937&, const double&, const double&, const double&, const double&, const double&, const double&);
+double MonteCarlo(double (*integrand)(double,double,double), bool (*range)(double,double,double), const double& x_min, const double& x_max, const double& y_min, const double& y_max, const double& z_min, const double& z_max);
 
 #endif

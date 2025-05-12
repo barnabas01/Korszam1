@@ -1,6 +1,7 @@
 #include<cmath>
 #include<random>
 #include<tuple>
+#include<functional>
 #include "mc.h"
 
 int n = 10000000; // number of points that will be randomly chosen for the intergral
@@ -19,7 +20,7 @@ std::tuple<double,double,double> rand_point(std::mt19937& mt, const double& x_mi
     return std::make_tuple(x, y, z);
 }
 
-double MonteCarlo(double (*integrand)(double,double,double), bool (*range)(double,double,double), const double& x_min, const double& x_max, const double& y_min, const double& y_max, const double& z_min, const double& z_max)
+double MonteCarlo(std::function<double(double,double,double)> integrand, std::function<bool(double,double,double)> range, const double& x_min, const double& x_max, const double& y_min, const double& y_max, const double& z_min, const double& z_max)
 {
     std::random_device rd;
     std::mt19937 mt(rd());

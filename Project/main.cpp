@@ -2,7 +2,6 @@
 #include<cmath>
 #include<random>    
 #include<tuple>
-#include<ctime>
 #include "mc.h"
 
 int main(){

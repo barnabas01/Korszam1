@@ -4,7 +4,6 @@
 #include<functional>
 #include "mc.h"
 
-int n = 10000000; // number of points that will be randomly chosen for the intergral
 double rand_range(std::mt19937& mt, const double& min, const double& max)
 {
     double num = (double)mt()/4294967295; //that is the maximum value of an unsigned 32 bit integer. This way i get back a number between 0 and 1
@@ -20,7 +19,7 @@ std::tuple<double,double,double> rand_point(std::mt19937& mt, const double& x_mi
     return std::make_tuple(x, y, z);
 }
 
-double MonteCarlo(std::function<double(double,double,double)> integrand, std::function<bool(double,double,double)> range, const double& x_min, const double& x_max, const double& y_min, const double& y_max, const double& z_min, const double& z_max)
+double MonteCarlo(std::function<double(double,double,double)> integrand, std::function<bool(double,double,double)> range, const double& x_min, const double& x_max, const double& y_min, const double& y_max, const double& z_min, const double& z_max, int n)
 {
     std::random_device rd;
     std::mt19937 mt(rd());
